@@ -1,8 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
-import ResizeObserver from 'resize-observer-polyfill';
 
 export function useMeasure() {
-  const ref = useRef();
+  const ref = useRef<Element>(null);
   const [bounds, set] = useState<any>({ left: 0, top: 0, width: 0, height: 0 });
   const [ro] = useState(
     () => new ResizeObserver(([entry]) => set(entry.contentRect))

@@ -33,7 +33,7 @@ interface ItemCardProps {
 const ItemCard: React.FC<ItemCardProps> = ({ item }) => {
   const { addItem, getItem, removeItem } = useCart();
   const [isOpen, setOpen] = useState(false);
-  const elRef = useRef();
+  const elRef = useRef<HTMLDivElement>(null);
   useOnClickOutside(elRef, () => setOpen(false));
   const [{ ref }, { height: viewHeight }] = useMeasure();
   const { opacity, height, transform } = useSpring<any>({

@@ -23,7 +23,7 @@ async function createOrder(data) {
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
   const doc = new GoogleSpreadsheet(
-    process.env.GOOGLE_SPREADSHEET_ID_PRODUCT,
+    process.env.GOOGLE_SPREADSHEET_ID_ORDER,
     serviceAccountAuth
   );
 

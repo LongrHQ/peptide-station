@@ -43,48 +43,12 @@ const menus = [
 ];
 
 const social = [
-  {
-    id: 0,
-    link: '/',
-    icon: <Facebook />,
-    className: 'facebook',
-    title: 'facebook',
-  },
-  {
-    id: 1,
-    link: '/',
-    icon: <Twitter />,
-    className: 'twitter',
-    title: 'twitter',
-  },
-  {
-    id: 2,
-    link: '/',
-    icon: <Youtube />,
-    className: 'youtube',
-    title: 'youtube',
-  },
-  {
-    id: 3,
-    link: '/',
-    icon: <Github />,
-    className: 'github',
-    title: 'github',
-  },
-  {
-    id: 4,
-    link: '/',
-    icon: <Instagram />,
-    className: 'instagram',
-    title: 'instagram',
-  },
-  {
-    id: 5,
-    link: '/',
-    icon: <Linkedin />,
-    className: 'linkedin',
-    title: 'linkedin',
-  },
+  { id: 0, link: '/', Icon: Facebook, className: 'facebook', title: 'facebook' },
+  { id: 1, link: '/', Icon: Twitter, className: 'twitter', title: 'twitter' },
+  { id: 2, link: '/', Icon: Youtube, className: 'youtube', title: 'youtube' },
+  { id: 3, link: '/', Icon: Github, className: 'github', title: 'github' },
+  { id: 4, link: '/', Icon: Instagram, className: 'instagram', title: 'instagram' },
+  { id: 5, link: '/', Icon: Linkedin, className: 'linkedin', title: 'linkedin' },
 ];
 
 export default function DrawerMenu() {
@@ -149,7 +113,7 @@ export default function DrawerMenu() {
               key={index}
             >
               <span className="sr-only">{item.title}</span>
-              {item.icon}
+              <item.Icon />
             </a>
           ))}
         </div>

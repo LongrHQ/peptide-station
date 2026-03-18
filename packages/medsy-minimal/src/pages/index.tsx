@@ -38,11 +38,11 @@ export default function Home({ products }) {
   );
 }
 
-export async function getServerSideProps() {
-  const products = await getProducts();
-  return {
-    props: {
-      products,
-    },
-  };
+export async function getStaticProps() {
+  try {
+    const products = await getProducts();
+    return { props: { products } };
+  } catch {
+    return { props: { products: [] } };
+  }
 }

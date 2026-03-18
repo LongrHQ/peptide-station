@@ -1,11 +1,11 @@
+/* Importing scrollbar css */
+@import './scrollbar.css';
+@import './rc-collapse.css';
+
 /* purgecss start ignore */
 @tailwind base;
 @tailwind components;
 /* purgecss end ignore */
-
-/* Importing scrollbar css */
-@import './scrollbar.css';
-@import './rc-collapse.css';
 
 /* Custom Css starts from here */
 body {

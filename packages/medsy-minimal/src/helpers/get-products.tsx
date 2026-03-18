@@ -29,17 +29,13 @@ export async function getProducts() {
   await doc.loadInfo(); // loads document properties and worksheets
   const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id]
   // read rows
-  const rows = await sheet.getRows(); // can pass in { limit, offset }
-  const products = rows
-    ?.map(({ _sheet, _rowNumber, _rawData, deleted }) => ({
-      ..._rawData,
-    }))
-    ?.map((item: any) => {
-      const transformedProducts = Object.fromEntries(
-        Object.entries(item).map(([key, val]: any) => [productKeys[key], val])
-      );
-      return transformedProducts;
-    });
+  const rows = await sheet.getRows();
+  const products = rows?.map((row: any) => {
+    const obj = row.toObject();
+    return Object.fromEntries(
+      productKeys.map((key) => [key, obj[key] ?? null])
+    );
+  });
 
   return JSON.parse(JSON.stringify(products));
 }
