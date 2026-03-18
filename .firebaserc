@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "longr-auth"
+  },
+  "targets": {
+    "longr-auth": {
+      "hosting": {
+        "peptide-station": [
+          "peptide-station"
+        ]
+      }
+    }
+  }
+}
