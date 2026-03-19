@@ -28,8 +28,12 @@ export default function Home({ products }) {
     <Layout>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        <meta name="description" content="Peptide Station — pen-first peptide delivery. Pre-mixed, precision-dosed, US third-party tested." />
         <title>Peptide Station — Pen-First Peptide Therapy</title>
+        <meta name="description" content="Shop BPC-157, TB-500, GHK-Cu, Sermorelin and more — pre-mixed, precision-dosed peptide pens. US third-party tested. No syringes, no vials. Free shipping on orders over $100." />
+        <meta property="og:title" content="Peptide Station — Pen-First Peptide Therapy" />
+        <meta property="og:description" content="Shop BPC-157, TB-500, GHK-Cu, Sermorelin and more — pre-mixed, precision-dosed peptide pens. US third-party tested." />
+        <meta property="og:url" content="https://peptide-station.web.app" />
+        <link rel="canonical" href="https://peptide-station.web.app" />
       </Head>
 
       {/* 1 ── Hero carousel */}
