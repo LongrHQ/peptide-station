@@ -51,7 +51,7 @@ const SliderComponent: React.FC<SlideProps> = ({
       <h1
         className="font-body font-bold mb-6 animate-fade-in-up animate-delay-2"
         style={{
-          fontSize: 'clamp(42px, 5.5vw, 76px)',
+          fontSize: 'clamp(32px, 5.5vw, 76px)',
           lineHeight: 1.0,
           letterSpacing: '-0.04em',
           color: isDark ? '#FFFFFF' : 'var(--ps-ink)',
@@ -71,7 +71,7 @@ const SliderComponent: React.FC<SlideProps> = ({
       <p
         className="mb-10 animate-fade-in-up animate-delay-3"
         style={{
-          fontSize: '18px',
+          fontSize: 'clamp(15px, 2vw, 18px)',
           lineHeight: 1.65,
           maxWidth: '460px',
           color: isDark ? 'rgba(255,255,255,0.65)' : 'var(--ps-muted)',

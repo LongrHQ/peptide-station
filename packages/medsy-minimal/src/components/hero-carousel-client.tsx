@@ -85,7 +85,7 @@ const ProgressDots: React.FC<{ total: number; current: number; autoPlay: boolean
     style={{
       position: 'absolute',
       bottom: '28px',
-      left: '112px',
+      left: 'clamp(24px, 8vw, 112px)',
       display: 'flex',
       gap: '10px',
       zIndex: 20,
@@ -175,7 +175,7 @@ const HeroCarouselClient = ({
                 backgroundPosition: 'center right',
                 backgroundRepeat: 'no-repeat',
                 width: '100%',
-                minHeight: '580px',
+                minHeight: 'clamp(420px, 60vw, 580px)',
                 display: 'flex',
                 alignItems: 'center',
               }}
@@ -198,9 +198,9 @@ const HeroCarouselClient = ({
                   position: 'relative',
                   zIndex: 1,
                   width: '100%',
-                  paddingLeft: '112px',
-                  paddingRight: '56px',
-                  paddingTop: '72px',
+                  paddingLeft: 'clamp(24px, 8vw, 112px)',
+                  paddingRight: 'clamp(20px, 4vw, 56px)',
+                  paddingTop: 'clamp(48px, 6vw, 72px)',
                   paddingBottom: '96px', // extra space for dots
                 }}
               >

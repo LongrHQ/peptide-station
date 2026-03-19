@@ -30,8 +30,8 @@ export default function HomepageFeatures() {
         backgroundColor: 'var(--ps-surface-alt)',
         borderTop: '1px solid var(--ps-border)',
         borderBottom: '1px solid var(--ps-border)',
-        paddingLeft: '48px',
-        paddingRight: '48px',
+        paddingLeft: 'clamp(16px, 5vw, 48px)',
+        paddingRight: 'clamp(16px, 5vw, 48px)',
         paddingTop: '64px',
         paddingBottom: '64px',
       }}

@@ -68,8 +68,8 @@ export default function HomepageTestimonials() {
       {/* ── Review grid ─────────────────────────────────────── */}
       <div
         style={{
-          paddingLeft: '48px',
-          paddingRight: '48px',
+          paddingLeft: 'clamp(16px, 5vw, 48px)',
+          paddingRight: 'clamp(16px, 5vw, 48px)',
           paddingTop: '80px',
           paddingBottom: '80px',
         }}

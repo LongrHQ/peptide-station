@@ -51,7 +51,7 @@ const Products = React.forwardRef(
       <div
         className="w-full my-12"
         ref={ref}
-        style={{ paddingLeft: '48px', paddingRight: '48px' }}
+        style={{ paddingLeft: 'clamp(16px, 5vw, 48px)', paddingRight: 'clamp(16px, 5vw, 48px)' }}
       >
         {/* ── Category filter bar ────────────────────── */}
         <div

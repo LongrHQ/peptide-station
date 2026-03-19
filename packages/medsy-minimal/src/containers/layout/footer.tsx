@@ -26,8 +26,8 @@ const Footer = () => (
     style={{
       backgroundColor: 'var(--ps-surface)',
       borderTop: '1px solid var(--ps-border)',
-      paddingLeft: '48px',
-      paddingRight: '48px',
+      paddingLeft: 'clamp(16px, 5vw, 48px)',
+      paddingRight: 'clamp(16px, 5vw, 48px)',
     }}
   >
     {/* Top row — wordmark + social */}

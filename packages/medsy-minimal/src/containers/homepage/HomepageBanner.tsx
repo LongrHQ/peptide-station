@@ -4,10 +4,10 @@ export default function HomepageBanner() {
   return (
     <section
       style={{
-        paddingLeft: '48px',
-        paddingRight: '48px',
-        paddingTop: '48px',
-        paddingBottom: '48px',
+        paddingLeft: 'clamp(16px, 5vw, 48px)',
+        paddingRight: 'clamp(16px, 5vw, 48px)',
+        paddingTop: 'clamp(24px, 4vw, 48px)',
+        paddingBottom: 'clamp(24px, 4vw, 48px)',
       }}
     >
       <div
@@ -39,8 +39,8 @@ export default function HomepageBanner() {
           style={{
             position: 'relative',
             zIndex: 1,
-            paddingLeft: '64px',
-            paddingRight: '64px',
+            paddingLeft: 'clamp(24px, 5vw, 64px)',
+            paddingRight: 'clamp(24px, 5vw, 64px)',
             paddingTop: '72px',
             paddingBottom: '72px',
           }}
