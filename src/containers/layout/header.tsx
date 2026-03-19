@@ -64,10 +64,41 @@ export default function Header() {
         <span className="sr-only">Peptide Station — Home</span>
       </Link>
 
-      {/* Search — homepage only */}
-      <div className="w-full mx-6 lg:flex lg:justify-center">
-        {isHome && <Search />}
-      </div>
+      {/* Nav links — desktop only */}
+      <nav className="hidden lg:flex items-center gap-1 flex-shrink-0 ml-2 mr-4">
+        {['Strength', 'Longevity', 'Beauty', 'Sexual', 'Special'].map((label) => (
+          <button
+            key={label}
+            onClick={() => dispatch({ type: 'OPEN_MENU', payload: { menu: true } })}
+            style={{
+              fontSize: '13px',
+              fontWeight: 500,
+              color: 'var(--ps-muted)',
+              padding: '6px 12px',
+              borderRadius: '6px',
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              whiteSpace: 'nowrap',
+              transition: 'color 150ms ease',
+            }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.color = 'var(--ps-ink)'; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.color = 'var(--ps-muted)'; }}
+          >
+            {label}
+          </button>
+        ))}
+      </nav>
+
+      {/* Spacer */}
+      <div className="flex-1" />
+
+      {/* Search — homepage only, constrained width */}
+      {isHome && (
+        <div className="hidden lg:flex items-center mx-4" style={{ width: '280px' }}>
+          <Search className="!max-w-none w-full" />
+        </div>
+      )}
 
       {/* Research use disclaimer — desktop */}
       <div
