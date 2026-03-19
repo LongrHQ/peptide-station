@@ -99,8 +99,10 @@ export default function Home({ products }) {
 export async function getStaticProps() {
   try {
     const products = await getProducts();
+    console.log(`[getStaticProps] Fetched ${products.length} products`);
     return { props: { products } };
-  } catch {
+  } catch (err) {
+    console.error('[getStaticProps] Failed to fetch products:', err);
     return { props: { products: [] } };
   }
 }
