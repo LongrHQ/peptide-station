@@ -48,10 +48,7 @@ export default function Home({ products }) {
       {/* 4 ── Mid-page banner */}
       <HomepageBanner />
 
-      {/* 5 ── Comparison table */}
-      <HomepageComparison />
-
-      {/* 6 ── Product grid headline */}
+      {/* 5 ── Product grid headline */}
       <div
         style={{
           paddingLeft: '48px',
@@ -87,8 +84,11 @@ export default function Home({ products }) {
         </h2>
       </div>
 
-      {/* 7 ── Product grid */}
+      {/* 6 ── Product grid */}
       <Products items={products} ref={elRef} />
+
+      {/* 7 ── Comparison table */}
+      <HomepageComparison />
 
       {/* 8 ── Testimonials + ticker */}
       <HomepageTestimonials />
