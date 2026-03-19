@@ -139,7 +139,7 @@ const HeroCarouselClient = ({
   className = '',
   containerClass,
   ...props
-}: CarouselProps): JSX.Element => {
+}: CarouselProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   return (
