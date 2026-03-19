@@ -43,4 +43,3 @@ firebase-debug.log
 # IDE
 .idea/
 tsconfig.tsbuildinfo
-/packages/**/*/tsconfig.tsbuildinfo
