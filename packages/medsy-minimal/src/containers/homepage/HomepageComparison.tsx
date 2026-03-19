@@ -13,8 +13,8 @@ export default function HomepageComparison() {
   return (
     <section
       style={{
-        paddingLeft: '48px',
-        paddingRight: '48px',
+        paddingLeft: 'clamp(16px, 5vw, 48px)',
+        paddingRight: 'clamp(16px, 5vw, 48px)',
         paddingTop: '96px',
         paddingBottom: '96px',
         backgroundColor: 'var(--ps-canvas)',
@@ -63,7 +63,7 @@ export default function HomepageComparison() {
             <tr>
               <th
                 style={{
-                  width: '180px',
+                  width: 'clamp(100px, 20vw, 180px)',
                   textAlign: 'left',
                   paddingBottom: '16px',
                   color: 'var(--ps-muted)',

@@ -126,9 +126,6 @@ function FeaturedPost({ post }: { post: typeof posts[0] }) {
     <Link
       href={`/learn/${post.slug}`}
       style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        gap: '0',
         borderRadius: '16px',
         overflow: 'hidden',
         border: '1px solid var(--ps-border)',
@@ -136,6 +133,7 @@ function FeaturedPost({ post }: { post: typeof posts[0] }) {
         marginBottom: '40px',
         textDecoration: 'none',
       }}
+      className="grid grid-cols-1 lg:grid-cols-2"
     >
       {/* Image */}
       <div style={{ position: 'relative', minHeight: '360px', overflow: 'hidden' }}>
@@ -152,7 +150,7 @@ function FeaturedPost({ post }: { post: typeof posts[0] }) {
       {/* Content */}
       <div
         style={{
-          padding: '48px',
+          padding: 'clamp(24px, 4vw, 48px)',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -408,8 +406,8 @@ export default function LearnPage() {
       {/* ── Hero slider ───────────────────────────────── */}
       <div
         style={{
-          paddingLeft: '48px',
-          paddingRight: '48px',
+          paddingLeft: 'clamp(16px, 5vw, 48px)',
+          paddingRight: 'clamp(16px, 5vw, 48px)',
           paddingTop: '24px',
           paddingBottom: '0',
         }}
@@ -437,7 +435,7 @@ export default function LearnPage() {
             }}
           />
           {/* Content */}
-          <div style={{ position: 'relative', zIndex: 1, paddingLeft: '112px', paddingRight: '56px', paddingTop: '72px', paddingBottom: '72px' }}>
+          <div style={{ position: 'relative', zIndex: 1, paddingLeft: 'clamp(24px, 8vw, 112px)', paddingRight: 'clamp(20px, 4vw, 56px)', paddingTop: 'clamp(48px, 6vw, 72px)', paddingBottom: 'clamp(48px, 6vw, 72px)' }}>
             <p
               style={{
                 fontSize: '11px',
@@ -503,7 +501,7 @@ export default function LearnPage() {
       {/* ── Main content ──────────────────────────────── */}
       <div
         id="articles"
-        style={{ paddingLeft: '48px', paddingRight: '48px', paddingTop: '56px', paddingBottom: '80px' }}
+        style={{ paddingLeft: 'clamp(16px, 5vw, 48px)', paddingRight: 'clamp(16px, 5vw, 48px)', paddingTop: '56px', paddingBottom: '80px' }}
       >
         {/* Category filters */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '40px' }}>
@@ -550,7 +548,7 @@ export default function LearnPage() {
             borderRadius: '16px',
             border: '1px solid var(--ps-border)',
             backgroundColor: 'var(--ps-surface-alt)',
-            padding: '48px',
+            padding: 'clamp(24px, 4vw, 48px)',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -584,7 +582,7 @@ export default function LearnPage() {
           <p style={{ fontSize: '15px', color: 'var(--ps-muted)', maxWidth: '440px', margin: 0 }}>
             Get new peptide guides, protocol updates, and lab-verified research delivered to your inbox every week.
           </p>
-          <div style={{ display: 'flex', gap: '10px', marginTop: '8px' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '8px', justifyContent: 'center' }}>
             <input
               type="email"
               placeholder="your@email.com"
@@ -598,6 +596,7 @@ export default function LearnPage() {
                 color: 'var(--ps-ink)',
                 outline: 'none',
                 width: '240px',
+                maxWidth: '100%',
               }}
             />
             <button

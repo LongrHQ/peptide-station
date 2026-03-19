@@ -67,8 +67,8 @@ export default function HeroBlock() {
     /* Outer container — matches product grid 48px padding, adds top gap + bottom gap */
     <div
       style={{
-        paddingLeft: '48px',
-        paddingRight: '48px',
+        paddingLeft: 'clamp(16px, 5vw, 48px)',
+        paddingRight: 'clamp(16px, 5vw, 48px)',
         paddingTop: '24px',
         paddingBottom: '0px',
       }}
