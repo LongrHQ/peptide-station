@@ -138,6 +138,9 @@ importers:
 
   packages/medsy-minimal:
     dependencies:
+      '@fal-ai/client':
+        specifier: ^1.9.4
+        version: 1.9.4
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -150,6 +153,9 @@ importers:
       localforage:
         specifier: ^1.10.0
         version: 1.10.0
+      lucide-react:
+        specifier: ^0.577.0
+        version: 0.577.0(react@19.2.4)
       mailgen:
         specifier: ^2.0.32
         version: 2.0.32
@@ -1104,6 +1110,10 @@ packages:
     resolution: {integrity: sha512-iH1B076HoAshH1mLpHMgwdGeTs0CYwL0SPMkGuSebZrwBp16v415e9NZXg2jtrqPVQjf6IANe2Vtlr5KswtcZQ==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
 
+  '@fal-ai/client@1.9.4':
+    resolution: {integrity: sha512-mDjF2QDq+oficSSxzmErNkseQeRXnvUBEhJy39n4PPe7jRPZeSqM2SNb27SW50rDtCtay+stwFU8zRZehlt1Qg==}
+    engines: {node: '>=18.0.0'}
+
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
     engines: {node: '>=18.18.0'}
@@ -1458,6 +1468,10 @@ packages:
   '@mrmlnc/readdir-enhanced@2.2.1':
     resolution: {integrity: sha512-bPHp6Ji8b41szTOcaP63VlnbbO5Ny6dwAATtY6JTjh5N2OLrb5Qk/Th5cRkRQhkWCt+EJsYrNB0MiL+Gpn6e3g==}
     engines: {node: '>=4'}
+
+  '@msgpack/msgpack@3.1.3':
+    resolution: {integrity: sha512-47XIizs9XZXvuJgoaJUIE2lFoID8ugvc0jzSHP+Ptfk8nTbnR8g788wv48N03Kx0UkAv559HWRQ3yzOgzlRNUA==}
+    engines: {node: '>= 18'}
 
   '@next/env@15.0.2':
     resolution: {integrity: sha512-c0Zr0ModK5OX7D4ZV8Jt/wqoXtitLNPwUfG9zElCZztdaZyNVnN40rDXVZ/+FGuR4CcNV5AEfM6N8f+Ener7Dg==}
@@ -3379,6 +3393,10 @@ packages:
   eventemitter3@5.0.1:
     resolution: {integrity: sha512-GWkBvjiSZK87ELrYOSESUYeVIc9mvLLf/nXalMOS5dYrgZq9o5OVkbZAVM06CVxYsCwH9BDZFPlQTlPA1j4ahA==}
 
+  eventsource-parser@1.1.2:
+    resolution: {integrity: sha512-v0eOBUbiaFojBu2s2NPBfYUoRR9GjcDNvCXVaqEf5vVfpIAh9f8RCo4vXTP8c63QRKCFwoLpMpTdPwwhEKVgzA==}
+    engines: {node: '>=14.18'}
+
   exec-buffer@3.2.0:
     resolution: {integrity: sha512-wsiD+2Tp6BWHoVv3B+5Dcx6E7u5zky+hUwOHjuH2hKSLR3dvRmX8fk8UD8uqQixHs4Wk6eDmiegVrMPjKj7wpA==}
     engines: {node: '>=4'}
@@ -4662,6 +4680,11 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
+  lucide-react@0.577.0:
+    resolution: {integrity: sha512-4LjoFv2eEPwYDPg/CUdBJQSDfPyzXCRrVW1X7jrx/trgxnxkHFjnVZINbzvzxjN70dxychOfg+FTYwBiS3pQ5A==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
   magic-string@0.25.9:
     resolution: {integrity: sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==}
 
@@ -5858,6 +5881,9 @@ packages:
     resolution: {integrity: sha512-LKg+Cr2ZF61fkcaK1UdkH2yEBBKnYjTyWzTJT6KNPcSPaiT7HSdhtMXQuN5wkTX0Xu72KQ1l8S42rlmexS2hSA==}
     engines: {node: 20 || >=22}
     hasBin: true
+
+  robot3@0.4.1:
+    resolution: {integrity: sha512-hzjy826lrxzx8eRgv80idkf8ua1JAepRc9Efdtj03N3KNJuznQCPlyCJ7gnUmDFwZCLQjxy567mQVKmdv2BsXQ==}
 
   rollup-plugin-terser@7.0.2:
     resolution: {integrity: sha512-w3iIaU4OxcF52UUXiZNsNeuXIMDvFrr+ZXK6bFZ0Q60qyVfq4uLptoS4bbq3paG3x216eQllFZX7zt6TIImguQ==}
@@ -7883,6 +7909,12 @@ snapshots:
       '@eslint/core': 1.1.1
       levn: 0.4.1
 
+  '@fal-ai/client@1.9.4':
+    dependencies:
+      '@msgpack/msgpack': 3.1.3
+      eventsource-parser: 1.1.2
+      robot3: 0.4.1
+
   '@humanfs/core@0.19.1': {}
 
   '@humanfs/node@0.16.6':
@@ -8097,14 +8129,14 @@ snapshots:
     dependencies:
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 22.8.4
+      '@types/node': 25.5.0
       jest-mock: 29.7.0
 
   '@jest/fake-timers@29.7.0':
     dependencies:
       '@jest/types': 29.6.3
       '@sinonjs/fake-timers': 10.3.0
-      '@types/node': 22.8.4
+      '@types/node': 25.5.0
       jest-message-util: 29.7.0
       jest-mock: 29.7.0
       jest-util: 29.7.0
@@ -8138,7 +8170,7 @@ snapshots:
       '@jest/schemas': 29.6.3
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.4
-      '@types/node': 22.8.4
+      '@types/node': 25.5.0
       '@types/yargs': 17.0.33
       chalk: 4.1.2
 
@@ -8168,6 +8200,8 @@ snapshots:
     dependencies:
       call-me-maybe: 1.0.2
       glob-to-regexp: 0.3.0
+
+  '@msgpack/msgpack@3.1.3': {}
 
   '@next/env@15.0.2': {}
 
@@ -8687,7 +8721,7 @@ snapshots:
 
   '@types/graceful-fs@4.1.9':
     dependencies:
-      '@types/node': 22.8.4
+      '@types/node': 25.5.0
 
   '@types/istanbul-lib-coverage@2.0.6': {}
 
@@ -8711,7 +8745,7 @@ snapshots:
 
   '@types/node-forge@1.3.11':
     dependencies:
-      '@types/node': 22.8.4
+      '@types/node': 25.5.0
 
   '@types/node@22.8.4':
     dependencies:
@@ -9591,7 +9625,7 @@ snapshots:
 
   chrome-launcher@0.15.2:
     dependencies:
-      '@types/node': 22.8.4
+      '@types/node': 25.5.0
       escape-string-regexp: 4.0.0
       is-wsl: 2.2.0
       lighthouse-logger: 1.4.2
@@ -9600,7 +9634,7 @@ snapshots:
 
   chromium-edge-launcher@0.2.0:
     dependencies:
-      '@types/node': 22.8.4
+      '@types/node': 25.5.0
       escape-string-regexp: 4.0.0
       is-wsl: 2.2.0
       lighthouse-logger: 1.4.2
@@ -10718,6 +10752,8 @@ snapshots:
   eventemitter3@3.1.2: {}
 
   eventemitter3@5.0.1: {}
+
+  eventsource-parser@1.1.2: {}
 
   exec-buffer@3.2.0:
     dependencies:
@@ -11871,7 +11907,7 @@ snapshots:
       '@jest/environment': 29.7.0
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 22.8.4
+      '@types/node': 25.5.0
       jest-mock: 29.7.0
       jest-util: 29.7.0
 
@@ -11881,7 +11917,7 @@ snapshots:
     dependencies:
       '@jest/types': 29.6.3
       '@types/graceful-fs': 4.1.9
-      '@types/node': 22.8.4
+      '@types/node': 25.5.0
       anymatch: 3.1.3
       fb-watchman: 2.0.2
       graceful-fs: 4.2.11
@@ -11908,7 +11944,7 @@ snapshots:
   jest-mock@29.7.0:
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 22.8.4
+      '@types/node': 25.5.0
       jest-util: 29.7.0
 
   jest-regex-util@29.6.3: {}
@@ -11916,7 +11952,7 @@ snapshots:
   jest-util@29.7.0:
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 22.8.4
+      '@types/node': 25.5.0
       chalk: 4.1.2
       ci-info: 3.9.0
       graceful-fs: 4.2.11
@@ -11945,7 +11981,7 @@ snapshots:
 
   jest-worker@29.7.0:
     dependencies:
-      '@types/node': 22.8.4
+      '@types/node': 25.5.0
       jest-util: 29.7.0
       merge-stream: 2.0.0
       supports-color: 8.1.1
@@ -12203,6 +12239,10 @@ snapshots:
   lru-cache@5.1.1:
     dependencies:
       yallist: 3.1.1
+
+  lucide-react@0.577.0(react@19.2.4):
+    dependencies:
+      react: 19.2.4
 
   magic-string@0.25.9:
     dependencies:
@@ -13611,6 +13651,8 @@ snapshots:
     dependencies:
       glob: 13.0.6
       package-json-from-dist: 1.0.1
+
+  robot3@0.4.1: {}
 
   rollup-plugin-terser@7.0.2(rollup@2.79.2):
     dependencies:

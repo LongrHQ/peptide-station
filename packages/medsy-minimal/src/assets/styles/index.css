@@ -1,56 +1,127 @@
-/* Importing scrollbar css */
-@import './scrollbar.css';
-@import './rc-collapse.css';
+/* ============================================================
+   Peptide Station — Global Stylesheet
+   Design System: Warm Precision
+   ============================================================ */
 
 /* purgecss start ignore */
 @tailwind base;
 @tailwind components;
 /* purgecss end ignore */
 
-/* Custom Css starts from here */
+/* ── Design Tokens ────────────────────────────────────────── */
+:root {
+  /* Color */
+  --ps-canvas:        #F5F4EF;   /* off-white — page background */
+  --ps-ink:           #2C2C2C;   /* charcoal — primary text & button bg */
+  --ps-brand:         #C0392B;   /* red — brand anchor */
+  --ps-brand-mid:     #E74C3C;   /* lighter red */
+  --ps-accent:        #E74C3C;   /* red — interactive states */
+  --ps-accent-hover:  #C0392B;
+  --ps-accent-light:  rgba(192, 57, 43, 0.10);
+  --ps-warm:          #C0392B;   /* red — premium signals */
+  --ps-warm-light:    rgba(192, 57, 43, 0.10);
+  --ps-surface:       #FFFFFF;
+  --ps-surface-alt:   #EEECEA;
+  --ps-border:        #DDDBD5;
+  --ps-text:          #2C2C2C;
+  --ps-muted:         #7A7874;
+  --ps-error:         #C0392B;
+
+  /* Typography */
+  --ps-font-display:  'Instrument Serif', serif;
+  --ps-font-body:     'DM Sans', sans-serif;
+  --ps-font-mono:     'DM Mono', monospace;
+
+  /* Motion */
+  --ps-duration-fast:   150ms;
+  --ps-duration-base:   200ms;
+  --ps-duration-slow:   350ms;
+  --ps-ease:            cubic-bezier(0.16, 1, 0.3, 1);
+  --ps-ease-bounce:     cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Radius */
+  --ps-radius-sm:   4px;
+  --ps-radius:      8px;
+  --ps-radius-lg:   12px;
+  --ps-radius-pill: 9999px;
+}
+
+/* ── Base Styles ──────────────────────────────────────────── */
+html {
+  background-color: var(--ps-canvas);
+}
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
-  line-height: 1.625;
-  @apply font-open;
-  @apply text-gray-700;
-  @apply text-14px;
+  background-color: var(--ps-canvas);
+  color: var(--ps-text);
+  line-height: 1.7;
+  @apply font-body;
+  font-size: 17px;
 }
 
+/* ── Typography ───────────────────────────────────────────── */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  @apply font-open;
-  @apply text-gray-900;
-  @apply font-semibold;
+  font-family: var(--ps-font-display);
+  color: var(--ps-ink);
+  line-height: 1.2;
+  font-weight: 400; /* Instrument Serif — normal weight has most character */
+  letter-spacing: -0.01em;
 }
 
-h1 {
-  @apply text-30px;
+h1 { font-size: 56px; }
+h2 { font-size: 42px; }
+h3 { font-size: 28px; }
+h4 { font-size: 22px; }
+h5 { font-size: 18px; }
+h6 { font-size: 15px; }
+
+/* Italic serif headings — brand accent */
+h1 em,
+h2 em,
+h3 em {
+  font-style: italic;
+  color: var(--ps-brand-mid);
 }
 
-h2 {
-  @apply text-24px;
+/* Mono type — dosages, specs, data */
+.font-mono,
+code,
+kbd,
+[data-spec] {
+  font-family: var(--ps-font-mono);
+  font-size: 0.875em;
+  letter-spacing: 0;
 }
 
-h3 {
-  @apply text-18px;
+/* ── Focus & Accessibility ────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--ps-accent);
+  outline-offset: 3px;
+  border-radius: var(--ps-radius-sm);
 }
 
-h4 {
-  @apply text-16px;
+/* ── Interactive defaults ─────────────────────────────────── */
+a {
+  color: var(--ps-brand);
+  transition: color var(--ps-duration-base) var(--ps-ease);
 }
 
-h5 {
-  @apply text-14px;
+a:hover {
+  color: var(--ps-accent);
 }
 
-h6 {
-  @apply text-13px;
+button,
+[role="button"],
+label[for],
+select {
+  cursor: pointer;
 }
 
 input[type='search'],
@@ -59,6 +130,7 @@ button {
   -webkit-appearance: none;
 }
 
+/* ── Hamburger Menu ───────────────────────────────────────── */
 .menuIcon {
   width: 26px;
   height: auto;
@@ -70,11 +142,11 @@ button {
 
 .bar {
   width: 13px;
-  height: 3px;
+  height: 2px;
   display: flex;
-  transition: all 0.25s ease-in-out;
-  @apply bg-gray-900;
-  @apply rounded-sm;
+  transition: all var(--ps-duration-base) ease-in-out;
+  background-color: var(--ps-ink);
+  border-radius: 2px;
 }
 
 .bar:nth-child(2) {
@@ -103,10 +175,10 @@ button {
   top: 0;
   left: 0;
   bottom: 0;
-  @apply bg-gray-900;
+  background-color: var(--ps-brand);
 }
 
-/* Main Content */
+/* ── Layout ───────────────────────────────────────────────── */
 .main-content {
   display: flex;
   flex-direction: column;
@@ -114,14 +186,13 @@ button {
   min-height: 100vh;
 }
 
-/* Cart Counter */
+/* ── Cart ─────────────────────────────────────────────────── */
 .cart-counter {
   position: absolute;
   bottom: 24px;
   right: -10px;
 }
 
-/* ScrollBar Height Calc */
 .cart-scrollbar {
   max-height: calc(100vh - 233px);
   -webkit-overflow-scrolling: touch;
@@ -142,7 +213,7 @@ button {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Feature Block */
+/* ── Feature Block ────────────────────────────────────────── */
 .feature-block {
   position: relative;
 }
@@ -157,7 +228,7 @@ button {
   height: calc(100% - 60px);
   display: flex;
   border-top: 0;
-  border-left: 1px dashed #d5d5d5;
+  border-left: 1px dashed var(--ps-border);
   position: absolute;
   top: 85px;
   left: 35px;
@@ -174,7 +245,7 @@ button {
     height: auto;
     display: flex;
     border-left: 0;
-    border-top: 1px dashed #d5d5d5;
+    border-top: 1px dashed var(--ps-border);
     position: absolute;
     top: 45px;
     left: calc(50% + 65px);
@@ -192,42 +263,25 @@ button {
   display: none;
 }
 
-/* footer Social icons */
+/* ── Social Icons ─────────────────────────────────────────── */
 .social {
-  color: #999999;
+  color: var(--ps-muted);
   margin-right: 30px;
-  transition: all 0.2s ease-in-out;
+  transition: color var(--ps-duration-base) var(--ps-ease);
 }
 
 .social:last-child {
   margin-right: 0;
 }
 
-.social.facebook:hover {
-  color: #3b5999;
-}
+.social.facebook:hover  { color: #3b5999; }
+.social.twitter:hover   { color: #55acee; }
+.social.youtube:hover   { color: #cd201f; }
+.social.github:hover    { color: #211f1f; }
+.social.instagram:hover { color: #e4405f; }
+.social.linkedin:hover  { color: #0077b5; }
 
-.social.twitter:hover {
-  color: #55acee;
-}
-
-.social.youtube:hover {
-  color: #cd201f;
-}
-
-.social.github:hover {
-  color: #211f1f;
-}
-
-.social.instagram:hover {
-  color: #e4405f;
-}
-
-.social.linkedin:hover {
-  color: #0077b5;
-}
-
-/* Carousel Css */
+/* ── Carousel ─────────────────────────────────────────────── */
 @media screen and (min-width: 1400px) {
   .react-multi-carousel-dot-list {
     position: absolute;
@@ -235,24 +289,22 @@ button {
     left: 160px;
     width: auto;
     right: auto;
-    bottom: 74px;
-    left: 160px;
   }
 }
 
-/* Product Details */
+/* ── Product Details ──────────────────────────────────────── */
 .product-item-details {
   top: 100%;
   left: 0;
   z-index: 1;
 }
 
-/*Instagram card image*/
+/* ── Instagram Card ───────────────────────────────────────── */
 .instagram-card-image {
   padding-bottom: 100%;
 }
 
-/* Cart */
+/* ── Drawer / Cart Panel ──────────────────────────────────── */
 .drawer {
   width: 100%;
   height: 100%;
@@ -287,7 +339,7 @@ button {
 }
 
 .overlay {
-  background-color: rgba(0, 0, 0, 0.35);
+  background-color: rgba(16, 22, 18, 0.55);
   z-index: 21;
   @apply w-full;
   @apply h-full;
@@ -297,7 +349,7 @@ button {
   @apply left-0;
 }
 
-/* Plus Icon */
+/* ── Plus Icon ────────────────────────────────────────────── */
 .plus-icon {
   position: relative;
   width: 16px;
@@ -312,7 +364,7 @@ button {
 .plus-icon::after {
   content: '';
   position: absolute;
-  background-color: #262626;
+  background-color: var(--ps-ink);
 }
 
 .plus-icon::before {
@@ -328,7 +380,7 @@ button {
   left: 7px;
   top: 50%;
   transform: translateY(-50%);
-  transition: 0.15s ease-in-out;
+  transition: var(--ps-duration-fast) ease-in-out;
 }
 
 .plus-icon.showed::after {
@@ -336,14 +388,14 @@ button {
   opacity: 0;
 }
 
-/* Hero carousel */
+/* ── Hero Carousel ────────────────────────────────────────── */
 @media only screen and (max-width: 990px) {
   .hero-carousel-item-base {
     background-image: none !important;
   }
 }
 
-/* About Us */
+/* ── Page Titles ──────────────────────────────────────────── */
 .page-title:after {
   content: '';
   position: relative;
@@ -352,14 +404,95 @@ button {
   width: 30px;
   height: 2px;
   display: flex;
-  @apply bg-gray-900;
+  background-color: var(--ps-accent);
 }
 
+/* ── About / Image Grid ───────────────────────────────────── */
 .about-img-grid img {
   width: 100%;
   height: 100%;
   display: flex;
 }
 
-/* Tailwind Ults */
+/* ── Brand Utility Classes ────────────────────────────────── */
+
+/* Trust badge — red chip */
+.badge-trust {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background-color: var(--ps-accent-light);
+  color: var(--ps-brand);
+  border: 1px solid rgba(192, 57, 43, 0.25);
+  border-radius: var(--ps-radius-pill);
+  font-family: var(--ps-font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Accent rule — decorative horizontal line */
+.rule-accent {
+  display: block;
+  width: 40px;
+  height: 2px;
+  background-color: var(--ps-accent);
+  border-radius: 1px;
+}
+
+/* Gradient mesh background — hero sections */
+.bg-mesh {
+  background-color: var(--ps-ink);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 20% 40%, rgba(192,57,43,0.40) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 20%, rgba(231,76,60,0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 40% at 60% 80%, rgba(44,44,44,0.30) 0%, transparent 50%);
+}
+
+/* Section separator — subtle warm divider */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ps-border), transparent);
+}
+
+/* ── Page-Load Animations ─────────────────────────────────── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s var(--ps-ease) both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease both;
+}
+
+.animate-delay-1 { animation-delay: 0.1s; }
+.animate-delay-2 { animation-delay: 0.2s; }
+.animate-delay-3 { animation-delay: 0.35s; }
+.animate-delay-4 { animation-delay: 0.5s; }
+
+/* ── Ticker scroll animation ──────────────────────────────── */
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── Tailwind Utilities ───────────────────────────────────── */
 @tailwind utilities;

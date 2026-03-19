@@ -14,7 +14,7 @@ const Layout = (props) => (
     <Drawer />
     <Header />
     <div className="flex flex-col w-full h-full min-h-screen flex-grow">
-      <div className="pt-90px flex-auto">{props.children}</div>
+      <div className="flex-auto" style={{ paddingTop: '80px' }}>{props.children}</div>
       <Footer />
     </div>
     <CartDrawer />

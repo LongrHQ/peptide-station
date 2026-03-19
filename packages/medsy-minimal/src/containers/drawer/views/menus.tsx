@@ -4,120 +4,111 @@ import { Scrollbar } from 'components/scrollbar';
 import ActiveLink from 'components/active-link';
 import { DrawerContext } from 'contexts/drawer/drawer.provider';
 import CloseIcon from 'assets/icons/close';
-import Logo from 'assets/icons/logo';
 import {
   Facebook,
   Twitter,
   Youtube,
-  Github,
   Instagram,
-  Linkedin,
 } from 'assets/icons/social-icons';
 
 const menus = [
-  {
-    id: 1,
-    pathname: 'https://medsy-modern.vercel.app/',
-    title: 'Medsy Modern',
-  },
-  {
-    id: 2,
-    pathname: '/',
-    title: 'Medsy Minimal',
-  },
-  {
-    id: 3,
-    pathname: 'https://medsy-classic.vercel.app/',
-    title: 'Medsy Classic',
-  },
-  {
-    id: 4,
-    pathname: '/faq',
-    title: 'FAQ',
-  },
-  {
-    id: 5,
-    pathname: '/terms',
-    title: 'Terms & Conditions',
-  },
+  { id: 1, pathname: '/',          title: 'Shop All Peptides' },
+  { id: 2, pathname: '/learn',     title: 'Learn' },
+  { id: 3, pathname: '/faq',       title: 'FAQ' },
+  { id: 4, pathname: '/terms',     title: 'Terms & Conditions' },
+  { id: 5, pathname: '/privacy',   title: 'Privacy Policy' },
+  { id: 6, pathname: '/shipping',  title: 'Shipping Policy' },
+  { id: 7, pathname: '/cookies',   title: 'Cookie Policy' },
 ];
 
 const social = [
-  { id: 0, link: '/', Icon: Facebook, className: 'facebook', title: 'facebook' },
-  { id: 1, link: '/', Icon: Twitter, className: 'twitter', title: 'twitter' },
-  { id: 2, link: '/', Icon: Youtube, className: 'youtube', title: 'youtube' },
-  { id: 3, link: '/', Icon: Github, className: 'github', title: 'github' },
-  { id: 4, link: '/', Icon: Instagram, className: 'instagram', title: 'instagram' },
-  { id: 5, link: '/', Icon: Linkedin, className: 'linkedin', title: 'linkedin' },
+  { id: 0, link: 'https://instagram.com/smilepeptides', Icon: Instagram, className: 'instagram', title: 'Instagram' },
+  { id: 1, link: 'https://twitter.com/smilepeptides',   Icon: Twitter,   className: 'twitter',   title: 'X / Twitter' },
+  { id: 2, link: 'https://youtube.com/@smilepeptides',  Icon: Youtube,   className: 'youtube',   title: 'YouTube' },
+  { id: 3, link: 'https://facebook.com/smilepeptides',  Icon: Facebook,  className: 'facebook',  title: 'Facebook' },
 ];
 
 export default function DrawerMenu() {
   const { dispatch } = useContext(DrawerContext);
   const hideMenu = () => {
-    dispatch({
-      type: 'OPEN_MENU',
-      payload: {
-        menu: false,
-      },
-    });
+    dispatch({ type: 'OPEN_MENU', payload: { menu: false } });
   };
 
   return (
-    <>
-      <div className="flex flex-col w-full h-full">
-        <div className="w-full h-90px bg-gray-100 flex justify-start items-center relative px-30px flex-shrink-0">
-          <Link href="/" className="flex" onClick={hideMenu}>
-            <span className="sr-only">Medsy</span>
-            <Logo width="100px" id="medsy-menu-logo" />
-          </Link>
-
-          <div className="flex items-center justify-end ml-auto pl-30px pr-50px text-gray-700 flex-shrink-0 lg:hidden">
-            {/* <PhoneIcon /> */}
-            <span className="font-semibold text-base text-14px ml-3">
-              +1 855-766-5885
-            </span>
-          </div>
-
-          <button
-            className="w-30px h-30px flex items-center justify-center text-gray-500 absolute right-25px focus:outline-none"
-            onClick={hideMenu}
-            aria-label="close"
+    <div className="flex flex-col w-full h-full">
+      {/* Header */}
+      <div
+        className="w-full h-90px flex justify-start items-center relative px-30px flex-shrink-0"
+        style={{ backgroundColor: 'var(--ps-surface-alt)', borderBottom: '1px solid var(--ps-border)' }}
+      >
+        <Link href="/" className="flex items-baseline gap-1" onClick={hideMenu}>
+          <span
+            className="font-display font-normal"
+            style={{ fontSize: '20px', letterSpacing: '-0.02em', color: 'var(--ps-ink)' }}
           >
-            <CloseIcon />
-          </button>
-        </div>
+            Peptide
+          </span>
+          <span
+            className="font-display font-normal"
+            style={{ fontSize: '20px', letterSpacing: '-0.02em', color: 'var(--ps-brand)' }}
+          >
+            Station
+          </span>
+        </Link>
 
-        <Scrollbar className="menu-scrollbar flex-grow">
-          <div className="flex flex-col py-60px pb-40px lg:pb-60px">
-            {menus.map((menu, index) => (
-              <ActiveLink
-                href={menu.pathname}
-                activeClassName="font-semibold active"
-                key={index}
-                className="menu-item relative text-gray-900 pl-30px pr-4 mb-8 transition duration-300 ease-in-out last:mb-0 hover:text-gray-900"
-                onClick={hideMenu}
-              >
-                {menu.title}
-              </ActiveLink>
-            ))}
-          </div>
-        </Scrollbar>
+        <button
+          className="w-30px h-30px flex items-center justify-center absolute right-25px focus:outline-none cursor-pointer"
+          style={{ color: 'var(--ps-muted)' }}
+          onClick={hideMenu}
+          aria-label="Close menu"
+        >
+          <CloseIcon />
+        </button>
+      </div>
 
-        <div className="flex items-center justify-start border-t border-gray-300 bg-gray-100 h-12 px-30px flex-shrink-0 lg:hidden">
-          {social.map((item, index) => (
-            <a
-              href={item.link}
-              className={`social ${item.className}`}
-              target="_blank"
-              rel="noreferrer"
-              key={index}
+      {/* Nav links */}
+      <Scrollbar className="menu-scrollbar flex-grow">
+        <div className="flex flex-col py-60px pb-40px lg:pb-60px">
+          {menus.map((menu) => (
+            <ActiveLink
+              key={menu.id}
+              href={menu.pathname}
+              activeClassName="font-semibold active"
+              className="menu-item relative text-gray-900 pl-30px pr-4 mb-8 transition duration-200 ease-in-out last:mb-0 hover:text-gray-900"
+              onClick={hideMenu}
             >
-              <span className="sr-only">{item.title}</span>
-              <item.Icon />
-            </a>
+              {menu.title}
+            </ActiveLink>
           ))}
         </div>
+
+        {/* Research disclaimer in menu */}
+        <p
+          className="px-30px pb-40px"
+          style={{ fontSize: '11px', color: 'var(--ps-muted)', lineHeight: 1.6 }}
+        >
+          All products are for research use only. Not intended for human consumption.
+        </p>
+      </Scrollbar>
+
+      {/* Social footer */}
+      <div
+        className="flex items-center justify-start h-12 px-30px flex-shrink-0 lg:hidden"
+        style={{ borderTop: '1px solid var(--ps-border)', backgroundColor: 'var(--ps-surface-alt)' }}
+      >
+        {social.map((item) => (
+          <a
+            key={item.id}
+            href={item.link}
+            className={`social ${item.className}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span className="sr-only">{item.title}</span>
+            <item.Icon />
+          </a>
+        ))}
       </div>
-    </>
+    </div>
   );
 }

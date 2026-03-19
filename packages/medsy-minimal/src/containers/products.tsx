@@ -11,9 +11,13 @@ const Products = React.forwardRef(
       item.name,
     ]);
     return (
-      <div className="w-full my-10 lg:mt-60px px-4 md:px-35px" ref={ref}>
+      <div
+        className="w-full my-12"
+        ref={ref}
+        style={{ paddingLeft: '48px', paddingRight: '48px' }}
+      >
         {searchableItems.length ? (
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xxl:grid-cols-3">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xxl:grid-cols-3">
             {searchableItems.map((item) => (
               <ItemCard key={item.id} item={item} />
             ))}
