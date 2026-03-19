@@ -36,6 +36,7 @@ jobs:
           GOOGLE_SPREADSHEET_ID_ORDER: ${{ secrets.GOOGLE_SPREADSHEET_ID_ORDER }}
           GOOGLE_SERVICE_ACCOUNT_CLIENT_EMAIL: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_CLIENT_EMAIL }}
           GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY }}
+          NODE_OPTIONS: --openssl-legacy-provider
 
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
